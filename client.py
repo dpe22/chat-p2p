@@ -7,7 +7,7 @@ ipSender = socket.gethostbyname(socket.gethostname())
 print(ipSender)
 ipPair = {name:ipSender}
 portSender = int(input("\nEnter the port of your system: "))
-rendezvous = (ipSender, 55555)
+rendezvous = ('192.168.56.1', 55555)
 
 # connect to rendezvous
 
@@ -55,16 +55,18 @@ def listen():
         data = sock.recv(1024)
         print('\rpeer: {}\n> '.format(data.decode()), end='')
 
-listener = threading.Thread(target=listen, daemon=True);
+listener = threading.Thread(target=listen, daemon=True)
 listener.start()
 
 # send messages
 # equiv: echo 'xxx' | nc -u -p 50002 x.x.x.x 50001
+#def sending():
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.bind(('0.0.0.0', dport))
 
 while True:
-    message = input('> ')
     message = input(f'{name}:')
-    message = name+":"+message
     sock.sendto(message.encode(), (ip, sport))
+
+#sender = threading.Thread(target=sending, daemon=True)
+#sender.start()
