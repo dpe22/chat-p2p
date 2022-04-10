@@ -16,7 +16,8 @@ def client(server_ip, server_port):
     s.connect((server_ip, server_port))
     #s.sendall("Hello, world!\n")
     for line in sys.stdin:
-        s.sendall(line);
+        line1 = line.encode()
+        s.sendall(line1);
         
     s.close()
 
