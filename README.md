@@ -20,12 +20,15 @@ Give me a call to work during class: 3019228272 - Talbot
 - Chat room
 
 - Pull this repository and run server on a device with inbound and outbound traffic enabled on the selected port:
-'''
+'''bash
+
 python P2P-Threaded_Server.py [Server IP] [Server Port]
+
 '''
 
 - On a different terminal, or another device become a client by entering:
-'''
+'''bash
+
 python P2P-Threaded_Client.py [Server IP] [Server Port]
 
 '''
