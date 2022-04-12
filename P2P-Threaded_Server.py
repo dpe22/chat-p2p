@@ -59,7 +59,7 @@ def clientthread(conn, addr, user_name):
                     print ("<" + user_name + "> " + message)
  
                     # Calls broadcast function to send message to all
-                    message_to_send = "<" + addr[0] + "> " + message
+                    message_to_send = "<" + user_name + "> " + message
                     broadcast(message_to_send, conn)
  
                 else:
