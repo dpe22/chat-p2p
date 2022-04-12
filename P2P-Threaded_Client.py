@@ -12,6 +12,9 @@ if len(sys.argv) != 3:
 IP_address = str(sys.argv[1])
 Port = int(sys.argv[2])
 server.connect((IP_address, Port))
+username = input("Enter your username: ")
+username = username.encode()
+server.send(username)
  
 while True:
  
